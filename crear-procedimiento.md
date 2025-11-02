@@ -7,6 +7,8 @@ Este ejemplo muestra cómo crear un **procedimiento almacenado** que inserta un 
 ## 📘 Código SQL
 
 ```sql
+DELIMITER $$
+
 CREATE PROCEDURE InsertarProducto (
     IN p_id INT,
     IN p_nombre VARCHAR(100)
@@ -14,7 +16,9 @@ CREATE PROCEDURE InsertarProducto (
 BEGIN
     INSERT INTO productos (id, nombre, cantidad, precio, fecha_creacion, activo)
     VALUES (p_id, p_nombre, 0, 0.00, NOW(), TRUE);
-END;
+END $$
+
+DELIMITER ;
 ```
 
 ## 🧩 Explicación
